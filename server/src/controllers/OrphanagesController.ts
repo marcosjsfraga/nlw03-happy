@@ -4,6 +4,9 @@ import { getRepository } from 'typeorm';
 import Orphanage from '../models/Orphanage';
 
 export default {
+    /*
+     * List all orphanages
+     */
     async index(request: Request, response: Response) {
         const orphanagesRepository = getRepository(Orphanage);
 
@@ -12,6 +15,9 @@ export default {
         return response.json(orphanages);
     },
 
+    /*
+     * Show orphanage detail
+     */
     async show(request: Request, response: Response) {
         const { id } = request.params;
 
@@ -22,6 +28,9 @@ export default {
         return response.json(orphanage);
     },
 
+    /*
+     * Create a new orphanage
+     */
     async create(request: Request, response: Response) {
         const {
             name,
